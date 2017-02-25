@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ManualCalcForm</class>
+ <widget class="QDialog" name="ManualCalcForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>336</width>
+    <height>277</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manual Calculations</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>if a prayer time in Mawakit consistently differs from
+the local prayer time, you can statically adjust it below. </string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="manualCalcGroupBox">
+     <property name="title">
+      <string>Manual Calculations</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="citiesLabel">
+          <property name="text">
+           <string>Fajr:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="fajrTimeEdit">
+          <property name="displayFormat">
+           <string notr="true">hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="fixedFajrCheckBox">
+          <property name="text">
+           <string>Fixed Time</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="citiesLabel_2">
+          <property name="text">
+           <string>Sunrise:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="shroukTimeEdit">
+          <property name="displayFormat">
+           <string notr="true">hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="fixedShroukCheckBox">
+          <property name="text">
+           <string>Fixed Time</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="citiesLabel_3">
+          <property name="text">
+           <string>Dhuhr:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="duhrTimeEdit">
+          <property name="displayFormat">
+           <string notr="true">hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="fixedDuhrCheckBox">
+          <property name="text">
+           <string>Fixed Time</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="citiesLabel_4">
+          <property name="text">
+           <string>Asr:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="asrTimeEdit">
+          <property name="displayFormat">
+           <string notr="true">hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="fixedAsrCheckBox">
+          <property name="text">
+           <string>Fixed Time</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="4" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="citiesLabel_5">
+          <property name="text">
+           <string>Maghrib:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="maghribTimeEdit">
+          <property name="displayFormat">
+           <string notr="true">hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="fixedMaghribCheckBox">
+          <property name="text">
+           <string>Fixed Time</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="5" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="citiesLabel_6">
+          <property name="text">
+           <string>Isha'a:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTimeEdit" name="ishaTimeEdit">
+          <property name="displayFormat">
+           <string notr="true">hh:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="fixedIshaCheckBox">
+          <property name="text">
+           <string>Fixed Time</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="dialogButtonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+     <property name="centerButtons">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>dialogButtonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ManualCalcForm</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>138</x>
+     <y>131</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dialogButtonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ManualCalcForm</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>138</x>
+     <y>131</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

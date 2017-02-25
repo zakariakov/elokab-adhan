@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LocationForm</class>
+ <widget class="QWidget" name="LocationForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>609</width>
+    <height>369</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Location</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="locationGroupBox">
+     <property name="title">
+      <string>Country/City</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::ExpandingFieldsGrow</enum>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="countriesLabel">
+        <property name="text">
+         <string>Chose your country:</string>
+        </property>
+        <property name="buddy">
+         <cstring>countriesComboBox</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="countriesComboBox"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="citiesLabel">
+        <property name="text">
+         <string>Chose your city:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy">
+         <cstring>citiesComboBox</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="citiesComboBox"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Informations</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QFormLayout" name="formLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="latitudeLabel">
+          <property name="text">
+           <string>Latitude:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>latitudeLineEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="latitudeLineEdit">
+          <property name="inputMask">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>13</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="longitudeLabel">
+          <property name="text">
+           <string>Longitude:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>longitudeLineEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="longitudeLineEdit">
+          <property name="maxLength">
+           <number>13</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QFormLayout" name="formLayout_4">
+        <item row="0" column="0">
+         <widget class="QLabel" name="timeZoneLabel">
+          <property name="text">
+           <string>Time zone:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>timeZoneSpinBox</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QCheckBox" name="dayLightCheckBox">
+          <property name="text">
+           <string>Daylight Savings Time</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="timeZoneSpinBox">
+          <property name="decimals">
+           <number>2</number>
+          </property>
+          <property name="minimum">
+           <double>-12.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>14.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.050000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="otherSettingsGroupBox">
+     <property name="title">
+      <string>Other Settings</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_3">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::ExpandingFieldsGrow</enum>
+      </property>
+      <item row="1" column="0">
+       <widget class="QLabel" name="calenderLabel">
+        <property name="text">
+         <string>Calculation method:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy">
+         <cstring>calcMethodComboBox</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="calcMethodComboBox">
+        <item>
+         <property name="text">
+          <string>Umm Al-Qurra</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Egyptian General Authority of Survey</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>University of Islamic Sciences, Karachi</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Islamic Society of North America</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Muslim World League</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="mathabLabel">
+        <property name="text">
+         <string>Asr juristic method:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy">
+         <cstring>asrJuristicComboBox</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="asrJuristicComboBox">
+        <item>
+         <property name="text">
+          <string>Shafi'i, Hanbali, Maliki</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Hanafi</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QPushButton" name="manualCalcButton">
+        <property name="text">
+         <string>Manual Calculations</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="highLatComboBox">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>None</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Middle of Night</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>One-Seventh of Night</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Angle-Based</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="highLatLabel">
+        <property name="text">
+         <string>Adjustment for higher latitudes:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>countriesComboBox</tabstop>
+  <tabstop>citiesComboBox</tabstop>
+  <tabstop>latitudeLineEdit</tabstop>
+  <tabstop>longitudeLineEdit</tabstop>
+  <tabstop>calcMethodComboBox</tabstop>
+  <tabstop>asrJuristicComboBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/elokab-adhan.png</file>
+        <file>images/adhan-app.png</file>
+        <file>images/cancel.png</file>
+        <file>images/preferences-desktop-display.png</file>
+        <file>images/preferences-desktop-locale.png</file>
+        <file>images/preferences-desktop-notification.png</file>
+        <file>images/Asr.png</file>
+        <file>images/0.png</file>
+        <file>images/1.png</file>
+        <file>images/2.png</file>
+        <file>images/3.png</file>
+        <file>images/4.png</file>
+        <file>images/5.png</file>
+        <file>images/logo.png</file>
+    </qresource>
+</RCC>
