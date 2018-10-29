@@ -61,7 +61,7 @@ Adhan::Adhan(QWidget *parent) :
 #endif
 
     db=new DataBaseAdhkar;
-#ifdef USE_MEDIA {
+#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
     mediaPlayer=new MediaPlayer;
 #endif
@@ -76,8 +76,15 @@ Adhan::Adhan(QWidget *parent) :
 
     m_today = QDate::currentDate();
     QDir appDir(QApplication::applicationDirPath());
+
+#ifdef Q_OS_HAIKU
+    appDir.cd(".");
+    m_resourceDir=  appDir.absolutePath()+"/data/";
+#else
     appDir.cdUp();
     m_resourceDir=  appDir.absolutePath()+"/share/elokab/elokab-adhan/data/";
+#endif
+
 
 #ifdef Q_OS_UNIX
     QGraphicsDropShadowEffect *fx = new QGraphicsDropShadowEffect();
@@ -181,7 +188,7 @@ void Adhan::dataUpdat()
 
         if(m_athanSoundEnabled)
         {
-#ifdef USE_MEDIA {
+#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 
             if(m_nextPrayerTime == m_prayerTimeList.at(0)) // Fajr adhan

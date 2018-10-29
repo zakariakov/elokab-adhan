@@ -50,7 +50,12 @@ DialogConfig::DialogConfig(QWidget *parent) :
     ui->vLayoutNotifier->addWidget(m_notification);
 ui->vLayoutAdhkar->addWidget(m_adhkar);
    ui->listWidget->setCurrentRow(0);
-  #ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN32
+   QSettings cg("elokab","adhan");
+   cg.beginGroup("Adhan");
+   ui->checkBoxAutoStart->setChecked(cg.value("AutoStart",false).toBool());
+   cg.endGroup();
+#elif  defined(Q_OS_HAIKU)
    QSettings cg("elokab","adhan");
    cg.beginGroup("Adhan");
    ui->checkBoxAutoStart->setChecked(cg.value("AutoStart",false).toBool());
@@ -93,11 +98,13 @@ m_adhkar->saveSettings();
             settings.remove("ElokabAdhan");
 
         }
-
+#elif defined(Q_OS_WIN32) || defined(Q_OS_HAIKU)
         QSettings cg("elokab","adhan");
         cg.beginGroup("Adhan");
         cg.setValue("AutoStart",ui->checkBoxAutoStart->isChecked());
                 cg.endGroup();
+
+
 #endif
         emit   accepteChange();
         this->accept();

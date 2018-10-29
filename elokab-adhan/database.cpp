@@ -31,10 +31,15 @@ Database::Database()
 
 bool Database::checkDatabase()
 {
+#ifdef Q_OS_HAIKU
+    appDir.cd(".");
+    dbFilePath.setFileName(appDir.absolutePath()+"/data/countries.db");
+#else
     QDir appDir(QApplication::applicationDirPath());
     appDir.cdUp();
 
     dbFilePath.setFileName(appDir.absolutePath()+"/share/elokab/elokab-adhan/data/countries.db");
+#endif
 
     if ( dbFilePath.exists() )
         return true;

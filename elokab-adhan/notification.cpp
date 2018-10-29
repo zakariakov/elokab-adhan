@@ -31,6 +31,8 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QSettings>
+#include <QSlider>
+#include <QStyle>
 NotificationForm::NotificationForm(QWidget *parent) :
         QWidget(parent)
 {
@@ -96,7 +98,7 @@ NotificationForm::NotificationForm(QWidget *parent) :
 }
 NotificationForm::~NotificationForm()
 {
-    #ifdef USE_MEDIA {
+    #ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 delete mediaPlayer;
 #endif

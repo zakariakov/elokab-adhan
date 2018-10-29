@@ -28,10 +28,15 @@ DataBaseAdhkar::DataBaseAdhkar()
 bool DataBaseAdhkar::checkDatabase()
 {
     QDir appDir(QApplication::applicationDirPath());
+
+#ifdef Q_OS_HAIKU
+    appDir.cd(".");
+    dbFilePath.setFileName(appDir.absolutePath()+"/data/adhkar.db");
+#else
     appDir.cdUp();
 
     dbFilePath.setFileName(appDir.absolutePath()+"/share/elokab/elokab-adhan/data/adhkar.db");
-
+#endif
     if ( dbFilePath.exists() )
         return true;
 

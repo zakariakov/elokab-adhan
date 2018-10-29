@@ -22,7 +22,7 @@
 #include <QObject>
 #include <QWidget>
 
-#ifdef USE_MEDIA {
+#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 #include "mediaplayer.h"
 #else
@@ -42,6 +42,7 @@
 //#include <Phonon/VolumeSlider>
 //#include <Phonon/MediaObject>
 
+class QSlider;
 
 #include "ui_notificationform.h"
 
@@ -49,11 +50,11 @@ class NotificationForm : public QWidget
 {
     Q_OBJECT
 public:
-    NotificationForm(QWidget *parent = 0);
-     ~NotificationForm();
+    NotificationForm(QWidget *parent =nullptr);
+    ~NotificationForm();
 
- void saveSettings();
-/*
+    void saveSettings();
+    /*
     void setSoundFilePath(QString path);
     void setSoundFajrFilePath(QString path);
     void setSoundDuaaFilePath(QString path);
@@ -67,36 +68,36 @@ public:
     void setStopPlayers(bool enabled);
     */
 signals:
-  void  accepteChange();
+    void  accepteChange();
 private slots:
-  void loadSettings();
+    void loadSettings();
 
- void checkSoundFile();
-void checkSoundFileFajr();
-void checkSoundFileDuaa();
+    void checkSoundFile();
+    void checkSoundFileFajr();
+    void checkSoundFileDuaa();
     void enableVolumeSlider(bool enabled);
-    #ifdef USE_MEDIA
+#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 
 #else
     void stateChanged(Phonon::State newState, Phonon::State oldState);
 #endif
- #endif
+#endif
     void playStop();
     void soundFinished();
     
-   // void on_buttonBox_clicked(QAbstractButton *button);
+    // void on_buttonBox_clicked(QAbstractButton *button);
 
 private:
-    #ifdef USE_MEDIA {
+#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-  MediaPlayer *mediaPlayer;
+    MediaPlayer *mediaPlayer;
 #else
     Phonon::VolumeSlider *volumeSlider;
     Phonon::MediaObject *mediaObject;
     Phonon::AudioOutput *audioOutput;
 #endif
-  #endif
+#endif
     QString  m_resourceDir;
     QToolButton *tmpToolBtn;
 
@@ -112,7 +113,7 @@ private:
     int notifyBeforeAthanVal();
     bool notifyAfterAthan();
     int notifyAfterAthanVal();
-QSlider *slider;
+    QSlider *slider;
 };
 
 #endif
