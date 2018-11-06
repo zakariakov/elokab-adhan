@@ -100,7 +100,8 @@ RESOURCES += \
 
 #INSTALL Linux
  target.path = /usr/bin
- 
-
- INSTALLS +=    target 
+ data.files=../usr/share/*
+ data.path=/usr/share
+ INSTALLS +=    target \
+                          data
              
