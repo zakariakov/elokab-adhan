@@ -9,7 +9,7 @@
 class NotificationUtill
 {
 public:
-    NotificationUtill();
+    NotificationUtill(){}
 public:
 
     static void Notify(const QString &app_name, const QString &app_icon,

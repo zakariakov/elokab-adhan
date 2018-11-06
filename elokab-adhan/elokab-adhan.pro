@@ -94,11 +94,13 @@ TRANSLATIONS    =../usr/share/elokab/translations/ar/elokab-adhan.ts\
                            ../usr/share/elokab/translations/fr/elokab-adhan.ts\
                            ../usr/share/elokab/translations/en/elokab-adhan.ts\
 
-CODECFORSRC = UTF-8
 
 RESOURCES += \
     images.qrc
-
+MKDIR = mkdir -p /usr/share/bin
+MKDIR = mkdir -p /usr/share/applications
+MKDIR = mkdir -p /usr/share/elokab/translations
+MKDIR = mkdir -p /usr/share/icons/hicolor/scalable/apps/
 #INSTALL Linux
  target.path = /usr/bin
  appdesktop.files =../usr/share/applications/elokab-adhan.desktop
