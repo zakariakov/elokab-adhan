@@ -1,12 +1,12 @@
 #include "mediaplayer.h"
 
 MediaPlayer::MediaPlayer(QObject *parent) :
-    QObject(parent),mediaPlayer(0)
+    QObject(parent),mediaPlayer(nullptr)
 {
-    connect(&mediaPlayer, SIGNAL(stateChanged(QMediaPlayer::State)),
-            this, SLOT(updateState(QMediaPlayer::State)));
-    connect(&mediaPlayer, SIGNAL(positionChanged(qint64)),
-            this, SLOT(updatePosition(qint64)));
+//    connect(&mediaPlayer, SIGNAL(stateChanged(QMediaPlayer::State)),
+//            this, SLOT(updateState(QMediaPlayer::State)));
+//    connect(&mediaPlayer, SIGNAL(positionChanged(qint64)),
+//            this, SLOT(updatePosition(qint64)));
 
 }
 
@@ -40,6 +40,7 @@ void MediaPlayer::playMedia(const QString &url)
 {
 
             mediaPlayer.setMedia( QUrl::fromLocalFile(url));
+            qDebug()<<"Url"<<QUrl::fromLocalFile(url);
             mediaPlayer.play();
 }
 void MediaPlayer::stop()

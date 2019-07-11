@@ -11,9 +11,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT +=widgets
 
 win32{
 QT       +=winextras
+ QT+=multimedia
 }else{
 HEADERS  += notificationutill.h \
 QT       +=dbus
+ QT+=multimedia
+QT+=x11extras
 }
 
 TEMPLATE = app
@@ -39,7 +42,9 @@ SOURCES += main.cpp\
     databaseadhkar.cpp \
    buttoncolor/buttoncolor.cpp \
     notification.cpp \
-    colorsform.cpp
+    colorsform.cpp \
+mediaplayer.cpp
+
 
 
 HEADERS  += \
@@ -54,7 +59,8 @@ HEADERS  += \
     adhkarform.h \
     databaseadhkar.h \
     buttoncolor/buttoncolor.h \
-    colorsform.h
+    colorsform.h \
+mediaplayer.h
 #
 
 
@@ -76,18 +82,10 @@ PKGCONFIG-=multimedia
 
 
 #  }
-equals(QT_MAJOR_VERSION, 5)
-{
-  QT+=multimedia
- HEADERS  +=  mediaplayer.h
-  SOURCES += mediaplayer.cpp
-}
 
-equals(QT_MAJOR_VERSION, 4) {
 
-#  QT+=phonon
-
-}
+ HEADERS  +=
+  SOURCES +=
 
 
 TRANSLATIONS    =../usr/share/elokab/translations/ar/elokab-adhan.ts\

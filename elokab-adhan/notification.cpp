@@ -24,7 +24,7 @@
 
 //#include <kstandarddirs.h>
 //#include <KMessageBox>
-//#include <KMimeType>
+//#include <QDebug>
 
 //#include <phonon/backendcapabilities.h>
 #include <QDebug>
@@ -41,7 +41,7 @@ NotificationForm::NotificationForm(QWidget *parent) :
     QDir appDir(QApplication::applicationDirPath());
     appDir.cdUp();
     m_resourceDir=  appDir.absolutePath()+"/share/elokab/elokab-adhan/data/";
-#ifdef USE_MEDIA
+//#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
     mediaPlayer=new MediaPlayer;
 
@@ -72,7 +72,7 @@ NotificationForm::NotificationForm(QWidget *parent) :
       connect(m_notificationUi.enableSoundCheckBox, SIGNAL(toggled(bool)), this, SLOT(enableVolumeSlider(bool)));
 
 #endif
- #endif
+ //#endif
  loadSettings();
 
 
@@ -98,11 +98,11 @@ NotificationForm::NotificationForm(QWidget *parent) :
 }
 NotificationForm::~NotificationForm()
 {
-    #ifdef USE_MEDIA
+ //   #ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 delete mediaPlayer;
 #endif
- #endif
+// #endif
 }
 
 void NotificationForm::loadSettings()
@@ -116,7 +116,7 @@ void NotificationForm::loadSettings()
     m_notificationUi.enableSoundCheckBox->setChecked(cg.value("athanSoundEnabled", true).toBool());
     m_notificationUi.enableDuaaCheckBox->setChecked(cg.value("duaaSoundEnabled", false).toBool());
 
-#ifdef USE_MEDIA {
+//#ifdef USE_MEDIA {
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 
     mediaPlayer->setVolume(cg.value("soundVolume", 100).toInt());
@@ -124,7 +124,7 @@ void NotificationForm::loadSettings()
 #else
   audioOutput->setVolume(cg.value("soundVolume", 1.0).toReal());
 #endif
- #endif
+ //#endif
      m_notificationUi.notifyBeforeCheckBox->setChecked(cg.value("notifyBeforeAthan", true).toBool());
      m_notificationUi.notifyBeforeSpinBox->setValue(cg.value("notifyBeforeAthanVal", 5).toInt());
     m_notificationUi.notifyAfterCheckBox->setChecked(cg.value("notifyAfterAthan", false).toBool());
@@ -215,7 +215,7 @@ void NotificationForm::checkSoundFileDuaa()
     
 //    return false;
 //}
-#ifdef USE_MEDIA
+//#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 
 #else
@@ -248,12 +248,12 @@ void NotificationForm::stateChanged(Phonon::State newState, Phonon::State /* old
 
 }
 #endif
-#endif
+//#endif
 
 void NotificationForm::playStop()
 {
        QToolButton *toolBtn = qobject_cast<QToolButton *>(sender());
-#ifdef USE_MEDIA
+//#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 
     if(mediaPlayer->isPlaying()){
@@ -268,6 +268,7 @@ void NotificationForm::playStop()
 
       if(toolBtn == m_notificationUi.playStopToolButton)
       {
+          qDebug()<<m_notificationUi.soundSelect->text();
           mediaPlayer->playMedia(m_notificationUi.soundSelect->text());
       }
       else if(toolBtn == m_notificationUi.playStopFajrToolButton)
@@ -311,7 +312,7 @@ void NotificationForm::playStop()
     toolBtn->setIcon(QIcon::fromTheme("media-playback-stop",style()->standardIcon(QStyle::SP_MediaStop)));
     tmpToolBtn = toolBtn;
 #endif
- #endif
+// #endif
 }
 
 void NotificationForm::soundFinished()
@@ -325,7 +326,7 @@ void NotificationForm::soundFinished()
 
 void NotificationForm::enableVolumeSlider(bool enabled)
 {
-#ifdef USE_MEDIA
+//#ifdef USE_MEDIA
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 
 #else
@@ -342,7 +343,7 @@ void NotificationForm::enableVolumeSlider(bool enabled)
         m_notificationUi.playStopDuaaToolButton->setEnabled(enabled);
     }
 #endif
-#endif
+//#endif
 }
 
 QString NotificationForm::soundFilePath()
@@ -372,13 +373,13 @@ bool NotificationForm::duaaSoundEnabled()
 
 qreal NotificationForm::soundVolume()
 {
-    #ifdef USE_MEDIA
+   // #ifdef USE_MEDIA
    #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
   return mediaPlayer->volume();
    #else
       return audioOutput->volume();
    #endif
-   #endif
+ //  #endif
 }
 
 bool NotificationForm::notifyBeforeAthan()

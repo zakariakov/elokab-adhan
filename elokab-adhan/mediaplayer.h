@@ -8,7 +8,7 @@ class MediaPlayer : public QObject
 {
     Q_OBJECT
 public:
-    explicit MediaPlayer(QObject *parent = 0);
+    explicit MediaPlayer(QObject *parent = nullptr);
 void playMedia(const QString &url);
 void stop();
 bool isPlaying();
@@ -18,7 +18,7 @@ signals:
 void  playingState();
 void  pausedState();
 void  stopedState();
-void finished();
+void  finished();
 
 public slots:
 void setVolume(int volume);

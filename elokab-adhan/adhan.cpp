@@ -23,6 +23,7 @@
 
 #include "dialogconfig.h"
 #include <QCloseEvent>
+#include <QX11Info>
 #include <QDebug>
 #include <QSettings>
 #include <QGraphicsDropShadowEffect>
@@ -46,11 +47,7 @@ Adhan::Adhan(QWidget *parent) :
     ui(new Ui::Adhan)
 {
     ui->setupUi(this);
-//QFont font;
-//font.setFamily("Arial");
-//ui->labelInfo->setFont(font);
-//ui->labelTimer->setFont(font);
-//ui->label->setFont(font);
+ setAttribute(Qt::WA_TranslucentBackground,true);
 #ifdef Q_OS_UNIX
     if (!QSystemTrayIcon::isSystemTrayAvailable()) {
 
@@ -87,16 +84,16 @@ Adhan::Adhan(QWidget *parent) :
 
 
 #ifdef Q_OS_UNIX
-    QGraphicsDropShadowEffect *fx = new QGraphicsDropShadowEffect();
-    if(this->isRightToLeft())
-        fx->setOffset(-3,3);
-    else
-        fx->setOffset(3,3);
+//    QGraphicsDropShadowEffect *fx = new QGraphicsDropShadowEffect();
+//    if(this->isRightToLeft())
+//        fx->setOffset(-3,3);
+//    else
+//        fx->setOffset(3,3);
 
-    fx->setBlurRadius(10);
-    fx->setColor(QColor(63, 63, 63, 200));
+//    fx->setBlurRadius(10);
+//    fx->setColor(QColor(63, 63, 63, 200));
 
-    setGraphicsEffect(fx);
+//    setGraphicsEffect(fx);
 #endif
 
 
@@ -714,7 +711,7 @@ void  Adhan::loadSettings(bool composit)
                                     "\n QLabel{\n  color: %5;\n }"
                                     "\n QWidget #widgetBgrmenu{"
                                     "\n   background-color: rgba(%1, %2, %3,%4);"
-                                    "\n   border-radius:10px;"
+                                    "\n   border-radius:8px;"
                                     "\n }"
                                     "\n QToolButton{"
                                     "\n      border-radius:2px;"
@@ -750,11 +747,11 @@ void  Adhan::loadSettings(bool composit)
             .arg(m_ColorBackground .alpha())
             .arg(m_ColorText.name());
     if(composit){
-        ui->gridLayoutAdhan->setContentsMargins(4,4,4,4);
+       // ui->gridLayoutAdhan->setContentsMargins(4,4,4,4);
         this->setStyleSheet(myStyleCmposite);
 
     }else{
-        ui->gridLayoutAdhan->setContentsMargins(1,1,1,1);
+       // ui->gridLayoutAdhan->setContentsMargins(1,1,1,1);
         this->setStyleSheet(myStyleNonCmposite);
 
     }
@@ -845,8 +842,11 @@ void Adhan::stylize()
     #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
     setWindowFlags(  Qt::Popup |Qt::CustomizeWindowHint| Qt::WindowStaysOnTopHint/* | Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint*/);
 
-    setAttribute(Qt::WA_TranslucentBackground, false);
-    loadSettings(false);
+   // setAttribute(Qt::WA_TranslucentBackground, false);
+    bool isComposite=false;
+    if(QX11Info::isCompositingManagerRunning())isComposite=true;
+
+    loadSettings(isComposite);
 #else
     if(QX11Info::isCompositingManagerRunning()){
         setWindowFlags(  Qt::Popup |Qt::CustomizeWindowHint| Qt::WindowStaysOnTopHint/* | Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint*/);
